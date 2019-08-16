@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+      integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css"
+    />
+    <title>Welcome to Firebase Hosting</title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/6.4.0/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/6.4.0/firebase-auth.js"></script>
+    <script defer src="/__/firebase/6.4.0/firebase-database.js"></script>
+    <script defer src="/__/firebase/6.4.0/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/6.4.0/firebase-storage.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+
+
+   
+  </head>
+  <body>
+      <!-- collapse admin -->
+      <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+          >&times;</a
+        >
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
+      </div>
+      <!-- collapse admin -->
+      <!-- header navbar start -->
+      <nav
+        class="navbar navbar-expand-lg navbar-light "
+        style="background-color: #fff;"
+      >
+        <a class="navbar-brand" href="#">Company </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto w-100">
+            <li class="nav-item active">
+              <a class="nav-link" href="#"
+                >Home <span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li id="main">
+              <button class="openbtn " onclick="openNav()">
+                &#9776;
+              </button>
+            </li>
+            <form class="form-inline my-2 my-lg-0">
+              <input
+                class="form-control mr-sm-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">
+                Search
+              </button>
+            </form>
+            <div class="nav-right d-flex ">
+              <li class="nav-item">
+                <a class="nav-link waves-effect waves-light"
+                  >1
+                  <i class="fas fa-envelope"></i>
+                </a>
+              </li>
+              <li class="nav-item avatar dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  id="navbarDropdownMenuLink-55"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <img
+                    src="./img/anhcv-detail.jpg"
+                    class="img-fluid rounded-circle z-depth-0"
+                    id="assign-image"
+                    alt="avatar image"
+                    style="width:30px; height:30px;"
+                  />
+                </a>
+                <div
+                  class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
+                  aria-labelledby="navbarDropdownMenuLink-55"
+                >
+                  <a class="dropdown-item" href="#">Sign In</a>
+                  <a class="dropdown-item" href="#">Register</a>
+                  <a class="dropdown-item" href="#">Sign Out</a>
+                </div>
+              </li>
+            </div>
+          </ul>
+        </div>
+      </nav>
+      <!-- end header navbar -->
+      <!-- Dashboard body start -->
+      <div class="container-fluid d-flex Dashboard">
+        <h2>Dashboard</h2>
+        <div class=" d-flex  nav-right">
+          <p class="px-2">Metrica</p>
+          <p class="px-2">Metrica</p>
+          <p class="px-2">Metrica</p>
+        </div>
+      </div>
+      <!-- info general start -->
+      <div class="container">
+        <div class="row">
+          <!-- left chart -->
+          <div class="col-md-8 box box_left">
+            <div class="canvas-left" style="width:100%;">
+              <h3>Title</h3>
+              <canvas id="myBarChart" width="100%" height="40%"></canvas>
+            </div>
+            <div class="line"></div>
+            <div class="canvas-left" style="width:100%;">
+              <h3>Title</h3>
+              <canvas id="myLineChart" width="100%" height="40%"></canvas>
+            </div>
+            <div class="line"></div>
+            <div class="canvas-left" style="width:100%;">
+              <h3>Title</h3>
+              <canvas id="myGroupBarChart" width="100%" height="40%"></canvas>
+            </div>
+          </div>
+          <!-- right chart -->
+          <div class="col-md-4 box box_right">
+            <div class="canvas-right" style="width:100%;">
+              <h3>Title</h3>
+              <canvas id="myPieChart" width="100%" height="60%"></canvas>
+            </div>
+            <div class="line"></div>
+            <div class="canvas-right" style="width:100%;">
+              <h3>Title</h3>
+              <canvas id="myBubbleChart" width="100%" height="100%"></canvas>
+            </div>
+            <div class="line"></div>
+            <div class="canvas-right" style="width:100%;">
+              <h3>Title</h3>
+              <canvas id="myCombineChart" width="100%" height="100%"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- info more small box -->
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3 col-6 box box_small">
+            <div class="card-body">
+              <div class="card-right float-right">
+                <i class="fa fa-star "></i>
+              </div>
+              <span class="badge badge-danger">
+                gggggggggggg
+              </span>
+              <h3 class="my-3">24k</h3>
+              <p class="mb-0">
+                <i class="fas fa-chart-line bg-success"></i>
+                <span class="px-2 text-success">5%</span>
+                <span> New Sessions Today </span>
+              </p>
+            </div>
+          </div>
+          <div class="col-md-3 col-6 box box_small">
+            <div class="card-body">
+              <div class="card-right float-right">
+                <i class="fa fa-star "></i>
+              </div>
+              <span class="badge badge-secondary">
+                gggggggggggg
+              </span>
+              <h3 class="my-3">24k</h3>
+              <p class="mb-0">
+                <i class="fas fa-chart-line bg-success"></i>
+                <span class="px-2 text-success">5%</span>
+                <span> New Sessions Today </span>
+              </p>
+            </div>
+          </div>
+          <div class="col-md-3 col-6 box box_small">
+            <div class="card-body">
+              <div class="card-right float-right">
+                <i class="fa fa-star "></i>
+              </div>
+              <span class="badge badge-warning">
+                gggggggggggg
+              </span>
+              <h3 class="my-3">24k</h3>
+              <p class="mb-0">
+                <i class="fas fa-chart-line bg-danger"></i>
+                <span class="px-2 text-danger">5%</span>
+                <span> New Sessions Today </span>
+              </p>
+            </div>
+          </div>
+          <div class="col-md-3 col-6 box box_small">
+            <div class="card-body">
+              <div class="card-right float-right">
+                <i class="fa fa-star "></i>
+              </div>
+              <span class="badge badge-success">
+                gggggggggggg
+              </span>
+              <h3 class="my-3">24k</h3>
+              <p class="mb-0">
+                <i class="fas fa-chart-line bg-danger"></i>
+                <span class="px-2 text-danger">5%</span>
+                <span> New Sessions Today </span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Table infor -->
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-6 box">
+            <table class="table table-bordered" id="table1">
+              <thead class="thead-light">
+                <tr>
+                  <th>Browser</th>
+                  <th>Sessions</th>
+                  <th>Bounce Rate</th>
+                  <th>Transactions</th>
+                </tr>
+              </thead>
+              <tbody>
+               <!-- add table tr -->
+              </tbody>
+            </table>
+          </div>
+          <div class="col-md-6 box">
+              <table class="table table-bordered" id="table2">
+                  <thead class="thead-light">
+                    <tr>
+                      <th>Browser</th>
+                      <th>Sessions</th>
+                      <th>Bounce Rate</th>
+                      <th>Transactions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                   <!-- add table tr -->
+                  </tbody>
+                </table>
+          </div>
+        </div>
+      </div>
+      <!-- Dashboard body end -->
+  
+     
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        // firebase.auth().onAuthStateChanged(user => { });
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+        try {
+          let app = firebase.app();
+          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
+          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
+        } catch (e) {
+          console.error(e);
+          document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
+        }
+      });
+    </script>
+     <!-- JS add more -->
+     <script>
+      /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
+      function openNav() {
+        document.getElementById("mySidebar").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+      }
+
+      /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+      function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+      }
+    </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+    <!-- chart js import  -->
+    <script src="../js/barchart.js"></script>
+    <script src="../js/bubbleChart.js"></script>
+    <script src="../js/combineChart.js"></script>
+    <script src="../js/groupBarChart.js"></script>
+    <script src="../js/lineChart.js"></script>
+    <script src="../js/piechart.js"></script>
+    <script src="../js/tableInfor.js"></script>
+  </body>
+</html>
